@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#059669" />
+  <title>FenceClaw — Fence codes on the job site</title>
+  <meta name="description" content="Mobile-first fence-code reference for contractors in Washtenaw, western Wayne, and SE Livingston counties, Michigan." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+
+  <header class="sticky top-0 z-40 bg-white shadow-sm">
+    <div class="mx-auto max-w-3xl px-4 py-3">
+      <div class="flex items-center gap-3">
+        <svg viewBox="0 0 48 48" class="w-10 h-10 shrink-0 text-emerald-600" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M8 18 L11 14 L14 18" />
+          <path d="M20 16 L23 12 L26 16" />
+          <path d="M32 18 L35 14 L38 18" />
+          <path d="M11 14 L11 40" />
+          <path d="M23 12 L23 40" />
+          <path d="M35 14 L35 40" />
+          <path d="M6 26 L40 26" />
+          <path d="M40 8 L44 14" opacity="0.6" />
+          <path d="M36 6 L44 18" opacity="0.6" />
+          <path d="M32 6 L44 22" opacity="0.5" />
+        </svg>
+        <div>
+          <div class="text-2xl font-bold text-emerald-600 leading-none">FenceClaw</div>
+          <div class="text-xs text-slate-500 mt-1">Fence codes on the job site.</div>
+        </div>
+      </div>
+
+      <div class="mt-3">
+        <label for="zip-input" class="sr-only">ZIP code</label>
+        <input
+          id="zip-input"
+          type="text"
+          inputmode="numeric"
+          pattern="[0-9]*"
+          maxlength="5"
+          placeholder="Enter ZIP code"
+          autocomplete="postal-code"
+          enterkeyhint="search"
+          class="w-full rounded-xl border-2 border-slate-200 bg-white px-4 py-4 font-semibold text-slate-900 placeholder-slate-400 focus:border-emerald-600 focus:outline-none tracking-wider"
+        />
+        <div class="mt-2 text-xs text-slate-500">
+          Coverage:
+          <button id="coverage-link" type="button" class="underline text-emerald-700 font-semibold">
+            <span id="coverage-summary-text">loading…</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="results" class="mx-auto w-full max-w-3xl px-4 py-6 flex-1"></main>
+
+  <footer class="mx-auto w-full max-w-3xl px-4 py-8 text-xs text-slate-500">
+    <p class="mb-2">Fence codes change. Verify with the municipality before permit application. FenceClaw is a reference tool, not legal advice.</p>
+    <p>
+      Version <span id="version">—</span>
+      · Last updated <span id="last-updated">—</span>
+    </p>
+  </footer>
+
+  <div id="coverage-modal" class="hidden fixed inset-0 z-50 bg-black/50 flex items-end sm:items-center justify-center p-0 sm:p-4" role="dialog" aria-modal="true" aria-labelledby="coverage-title">
+    <div class="bg-white rounded-t-2xl sm:rounded-2xl w-full max-w-lg max-h-[85vh] overflow-y-auto shadow-xl">
+      <div class="flex items-center justify-between p-4 border-b border-slate-200 sticky top-0 bg-white">
+        <h3 id="coverage-title" class="text-lg font-bold">Covered ZIP codes</h3>
+        <button id="coverage-close" type="button" aria-label="Close" class="text-slate-500 text-3xl leading-none px-3 py-1 hover:text-slate-900">&times;</button>
+      </div>
+      <div id="coverage-list" class="p-4"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
