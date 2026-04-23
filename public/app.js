@@ -37,6 +37,9 @@ function typeLabel(t) {
 }
 
 function isMobile() {
+  // Default to mobile if matchMedia is unavailable — this is a mobile-first
+  // app and mobile has the safer section-collapse default.
+  if (typeof window.matchMedia !== "function") return true;
   return window.matchMedia("(max-width: 767px)").matches;
 }
 
