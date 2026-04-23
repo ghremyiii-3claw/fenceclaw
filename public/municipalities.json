@@ -1,0 +1,136 @@
+{
+  "_meta": {
+    "name": "FenceClaw Municipality Database",
+    "version": "0.1.0",
+    "last_updated": "2026-04-22",
+    "coverage_area": "Western Wayne, Washtenaw, southeast Livingston counties, Michigan",
+    "disclaimer": "Fence codes change. Always verify with the municipality before permit application. FenceClaw is a reference tool, not legal advice."
+  },
+  "zip_map": {
+    "48103": ["ann-arbor-city", "ann-arbor-twp", "scio-twp", "webster-twp", "lodi-twp"],
+    "48104": ["ann-arbor-city", "ann-arbor-twp"],
+    "48105": ["ann-arbor-city", "ann-arbor-twp", "superior-twp"],
+    "48108": ["ann-arbor-city", "pittsfield-twp", "lodi-twp"],
+    "48109": ["ann-arbor-city"],
+    "48111": ["belleville-city", "van-buren-twp", "sumpter-twp"],
+    "48116": ["brighton-city", "brighton-twp", "genoa-twp", "green-oak-twp"],
+    "48118": ["chelsea-city", "dexter-twp", "lyndon-twp", "sylvan-twp"],
+    "48130": ["dexter-city", "webster-twp", "scio-twp", "dexter-twp"],
+    "48139": ["hamburg-twp", "green-oak-twp"],
+    "48143": ["hamburg-twp", "green-oak-twp"],
+    "48150": ["livonia-city"],
+    "48152": ["livonia-city"],
+    "48154": ["livonia-city"],
+    "48168": ["northville-city", "northville-twp", "salem-twp"],
+    "48169": ["pinckney-village", "hamburg-twp", "putnam-twp"],
+    "48170": ["plymouth-city", "plymouth-twp", "canton-twp", "northville-twp"],
+    "48176": ["saline-city", "saline-twp", "lodi-twp", "pittsfield-twp", "york-twp"],
+    "48187": ["canton-twp", "plymouth-twp"],
+    "48188": ["canton-twp", "plymouth-twp"],
+    "48189": ["northfield-twp", "hamburg-twp", "green-oak-twp"],
+    "48197": ["ypsilanti-city", "ypsilanti-twp", "pittsfield-twp", "augusta-twp"],
+    "48198": ["ypsilanti-city", "ypsilanti-twp", "superior-twp"]
+  },
+  "municipalities": {
+    "ann-arbor-city": {
+      "slug": "ann-arbor-city",
+      "name": "City of Ann Arbor",
+      "type": "city",
+      "county": "Washtenaw",
+      "zips": ["48103", "48104", "48105", "48108", "48109"],
+      "ordinance": {
+        "chapter": "Chapter 104",
+        "title": "Fences",
+        "url": "https://library.municode.com/mi/ann_arbor/codes/code_of_ordinances",
+        "last_verified": "2026-04-22"
+      },
+      "height": {
+        "front": { "max_ft": 4, "notes": "Max 30 inches in front open space (25–40 ft from street); up to 4 ft elsewhere in front yard" },
+        "side":  { "max_ft": 6, "notes": "Middle zone (25 ft beyond front open space): 6 ft max, 80% opacity limit" },
+        "rear":  { "max_ft": 8, "notes": "Opaque allowed; building permit required over 6 ft" }
+      },
+      "opacity": {
+        "front_max_pct": 50,
+        "middle_max_pct": 80,
+        "rear_max_pct": 100,
+        "notes": "Measured head-on, perpendicular to fence"
+      },
+      "setback": {
+        "required": false,
+        "distance_in": 0,
+        "notes": "No minimum setback; fence may be up to property line, but entire fence must be on your property"
+      },
+      "permit": {
+        "required_always": true,
+        "required_over_ft": 0,
+        "fee_usd": 75,
+        "notes": "Fence permit ($75) required; additional building permit required over 6 ft; zoning compliance permit required in floodplains"
+      },
+      "corner_lot": {
+        "has_rule": true,
+        "notes": "Visibility triangle enforced at intersections and driveways per Ch. 104"
+      },
+      "pool_barrier": {
+        "has_rule": true,
+        "notes": "Follows Michigan Residential Code barrier requirements; coordinate with Building Department"
+      },
+      "materials": {
+        "prohibited": ["barbed wire (residential)", "electric (residential)"],
+        "notes": "Historic districts restrict plastic/vinyl-coated; custom masonry reviewed case-by-case by HDC"
+      },
+      "permit_office": {
+        "name": "Ann Arbor Planning Services",
+        "address": "301 E. Huron St., Ann Arbor, MI 48104",
+        "phone": "734-794-6265",
+        "email": "planning@a2gov.org",
+        "portal_url": "https://www.a2gov.org/planning/"
+      },
+      "flags": {
+        "historic_district": true,
+        "floodplain_review": true,
+        "hoa_common": false
+      },
+      "sources": [
+        "https://www.a2gov.org/media/s5zhrnow/fence-guidelines-3-3-2025.pdf",
+        "https://library.municode.com/mi/ann_arbor/codes/code_of_ordinances"
+      ],
+      "research_status": "verified",
+      "research_notes": "Opacity/height info confirmed from official Ann Arbor Fence Guidelines PDF (3-3-2025) and LocalWiki Ch. 104 summary. Permit fee $75 confirmed in PDF."
+    },
+    "ann-arbor-twp": { "slug": "ann-arbor-twp", "name": "Ann Arbor Township", "type": "township", "county": "Washtenaw", "research_status": "stub" },
+    "scio-twp": { "slug": "scio-twp", "name": "Scio Township", "type": "township", "county": "Washtenaw", "research_status": "stub" },
+    "webster-twp": { "slug": "webster-twp", "name": "Webster Township", "type": "township", "county": "Washtenaw", "research_status": "stub" },
+    "lodi-twp": { "slug": "lodi-twp", "name": "Lodi Township", "type": "township", "county": "Washtenaw", "research_status": "stub" },
+    "superior-twp": { "slug": "superior-twp", "name": "Superior Township", "type": "township", "county": "Washtenaw", "research_status": "stub" },
+    "pittsfield-twp": { "slug": "pittsfield-twp", "name": "Pittsfield Charter Township", "type": "township", "county": "Washtenaw", "research_status": "stub" },
+    "belleville-city": { "slug": "belleville-city", "name": "City of Belleville", "type": "city", "county": "Wayne", "research_status": "stub" },
+    "van-buren-twp": { "slug": "van-buren-twp", "name": "Van Buren Charter Township", "type": "township", "county": "Wayne", "research_status": "stub" },
+    "sumpter-twp": { "slug": "sumpter-twp", "name": "Sumpter Township", "type": "township", "county": "Wayne", "research_status": "stub" },
+    "brighton-city": { "slug": "brighton-city", "name": "City of Brighton", "type": "city", "county": "Livingston", "research_status": "stub" },
+    "brighton-twp": { "slug": "brighton-twp", "name": "Brighton Township", "type": "township", "county": "Livingston", "research_status": "stub" },
+    "genoa-twp": { "slug": "genoa-twp", "name": "Genoa Charter Township", "type": "township", "county": "Livingston", "research_status": "stub" },
+    "green-oak-twp": { "slug": "green-oak-twp", "name": "Green Oak Charter Township", "type": "township", "county": "Livingston", "research_status": "stub" },
+    "chelsea-city": { "slug": "chelsea-city", "name": "City of Chelsea", "type": "city", "county": "Washtenaw", "research_status": "stub" },
+    "dexter-twp": { "slug": "dexter-twp", "name": "Dexter Township", "type": "township", "county": "Washtenaw", "research_status": "stub" },
+    "lyndon-twp": { "slug": "lyndon-twp", "name": "Lyndon Township", "type": "township", "county": "Washtenaw", "research_status": "stub" },
+    "sylvan-twp": { "slug": "sylvan-twp", "name": "Sylvan Township", "type": "township", "county": "Washtenaw", "research_status": "stub" },
+    "dexter-city": { "slug": "dexter-city", "name": "City of Dexter", "type": "city", "county": "Washtenaw", "research_status": "stub" },
+    "hamburg-twp": { "slug": "hamburg-twp", "name": "Hamburg Township", "type": "township", "county": "Livingston", "research_status": "stub" },
+    "livonia-city": { "slug": "livonia-city", "name": "City of Livonia", "type": "city", "county": "Wayne", "research_status": "stub" },
+    "northville-city": { "slug": "northville-city", "name": "City of Northville", "type": "city", "county": "Wayne/Oakland", "research_status": "stub" },
+    "northville-twp": { "slug": "northville-twp", "name": "Northville Charter Township", "type": "township", "county": "Wayne", "research_status": "stub" },
+    "salem-twp": { "slug": "salem-twp", "name": "Salem Township", "type": "township", "county": "Washtenaw", "research_status": "stub" },
+    "pinckney-village": { "slug": "pinckney-village", "name": "Village of Pinckney", "type": "village", "county": "Livingston", "research_status": "stub" },
+    "putnam-twp": { "slug": "putnam-twp", "name": "Putnam Township", "type": "township", "county": "Livingston", "research_status": "stub" },
+    "plymouth-city": { "slug": "plymouth-city", "name": "City of Plymouth", "type": "city", "county": "Wayne", "research_status": "stub" },
+    "plymouth-twp": { "slug": "plymouth-twp", "name": "Plymouth Charter Township", "type": "township", "county": "Wayne", "research_status": "stub" },
+    "canton-twp": { "slug": "canton-twp", "name": "Canton Charter Township", "type": "township", "county": "Wayne", "research_status": "stub" },
+    "saline-city": { "slug": "saline-city", "name": "City of Saline", "type": "city", "county": "Washtenaw", "research_status": "stub" },
+    "saline-twp": { "slug": "saline-twp", "name": "Saline Township", "type": "township", "county": "Washtenaw", "research_status": "stub" },
+    "york-twp": { "slug": "york-twp", "name": "York Charter Township", "type": "township", "county": "Washtenaw", "research_status": "stub" },
+    "northfield-twp": { "slug": "northfield-twp", "name": "Northfield Township", "type": "township", "county": "Washtenaw", "research_status": "stub" },
+    "ypsilanti-city": { "slug": "ypsilanti-city", "name": "City of Ypsilanti", "type": "city", "county": "Washtenaw", "research_status": "stub" },
+    "ypsilanti-twp": { "slug": "ypsilanti-twp", "name": "Ypsilanti Charter Township", "type": "township", "county": "Washtenaw", "research_status": "stub" },
+    "augusta-twp": { "slug": "augusta-twp", "name": "Augusta Charter Township", "type": "township", "county": "Washtenaw", "research_status": "stub" }
+  }
+}
