@@ -326,6 +326,135 @@ function renderMunicipality(m) {
   return isStub ? renderStub(m) : renderFull(m);
 }
 
+// ---------- launch state ----------
+
+function renderLaunch() {
+  const muniEntries = Object.values(DATA.municipalities);
+  const verified = muniEntries.filter((m) => m.research_status === "verified");
+  const stubCount = muniEntries.length - verified.length;
+  const zipCount = Object.keys(DATA.zip_map).length;
+  // Normalise "Wayne/Oakland" → "Wayne" + "Oakland" for the county count.
+  const counties = new Set();
+  muniEntries.forEach((m) => {
+    if (!m.county) return;
+    m.county.split("/").forEach((c) => counties.add(c.trim()));
+  });
+
+  const verifiedList = verified
+    .map(
+      (m) => `
+        <button type="button" data-slug="${escapeHtml(m.slug)}"
+                class="launch-muni w-full text-left bg-white rounded-xl ring-1 ring-slate-200 p-4 hover:ring-emerald-400 hover:shadow-sm active:bg-slate-50 transition flex items-center justify-between gap-3">
+          <div class="min-w-0">
+            <div class="font-bold text-slate-900 truncate">${escapeHtml(m.name)}</div>
+            <div class="text-xs text-slate-500 mt-0.5">
+              ${escapeHtml(m.county || "")} County · ${escapeHtml(typeLabel(m.type))}
+            </div>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            ${statusBadge("verified")}
+            <span class="text-slate-400 text-lg" aria-hidden="true">→</span>
+          </div>
+        </button>
+      `
+    )
+    .join("");
+
+  const tile = (value, label) => `
+    <div class="bg-white rounded-xl p-4 ring-1 ring-slate-200 text-center">
+      <div class="text-3xl font-bold text-slate-900 tabular-nums">${escapeHtml(value)}</div>
+      <div class="text-[10px] sm:text-xs uppercase tracking-widest text-slate-500 mt-1 font-semibold">${escapeHtml(label)}</div>
+    </div>
+  `;
+
+  return `
+    <section class="relative overflow-hidden bg-gradient-to-br from-white to-emerald-50 rounded-2xl ring-1 ring-slate-200 shadow-sm p-8 sm:p-10 mb-6">
+      <svg viewBox="0 0 120 80" aria-hidden="true" class="absolute -right-4 -bottom-4 w-48 h-32 text-emerald-600/10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 30 L14 24 L18 30 L18 70 L10 70 Z" fill="currentColor" />
+        <path d="M28 26 L32 20 L36 26 L36 70 L28 70 Z" fill="currentColor" />
+        <path d="M46 30 L50 24 L54 30 L54 70 L46 70 Z" fill="currentColor" />
+        <path d="M64 26 L68 20 L72 26 L72 70 L64 70 Z" fill="currentColor" />
+        <path d="M82 30 L86 24 L90 30 L90 70 L82 70 Z" fill="currentColor" />
+        <path d="M100 26 L104 20 L108 26 L108 70 L100 70 Z" fill="currentColor" />
+        <rect x="6" y="42" width="108" height="4" fill="currentColor" />
+      </svg>
+      <div class="relative">
+        <div class="text-xs font-semibold uppercase tracking-widest text-emerald-700 mb-3">Fence code reference</div>
+        <h1 class="text-3xl sm:text-4xl font-bold text-slate-900 leading-[1.1] tracking-tight">
+          Every code.<br/>Every ZIP.<br/>One tap.
+        </h1>
+        <p class="text-slate-600 mt-4 text-base sm:text-lg leading-relaxed max-w-md">
+          Heights, setbacks, permit fees, and the office to call — for every municipality in your service area.
+        </p>
+        <div class="mt-6 inline-flex items-center gap-2 text-sm text-slate-500">
+          <span class="text-emerald-600" aria-hidden="true">↑</span>
+          <span>Type a ZIP above, or pick a municipality below.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid grid-cols-3 gap-2 sm:gap-3 mb-8">
+      ${tile(zipCount, "ZIPs")}
+      ${tile(muniEntries.length, "Munis")}
+      ${tile(counties.size, "Counties")}
+    </section>
+
+    ${verified.length ? `
+    <section class="mb-8">
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="text-xs font-semibold uppercase tracking-widest text-slate-500">Verified · ready now</h2>
+        <span class="text-xs text-slate-400">${verified.length} of ${muniEntries.length}</span>
+      </div>
+      <div class="space-y-2">${verifiedList}</div>
+    </section>
+    ` : ""}
+
+    ${stubCount > 0 ? `
+    <section class="mb-4">
+      <div class="bg-white rounded-xl ring-1 ring-slate-200 p-5">
+        <div class="flex items-start gap-3">
+          <div class="shrink-0 w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 text-lg" aria-hidden="true">◷</div>
+          <div class="min-w-0">
+            <div class="font-semibold text-slate-900">${stubCount} more municipalities pending</div>
+            <p class="text-sm text-slate-600 mt-1">
+              Coverage area is mapped; full fence codes are being verified one municipality at a time. Tap any ZIP below to see what's covered.
+            </p>
+            <button id="launch-browse" type="button" class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-emerald-700 hover:text-emerald-800">
+              Browse all ZIPs <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    ` : ""}
+  `;
+}
+
+function showLaunch() {
+  const root = document.getElementById("results");
+  root.innerHTML = renderLaunch();
+  currentMunis = null;
+  root.querySelectorAll(".launch-muni").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const slug = btn.dataset.slug;
+      const m = DATA.municipalities[slug];
+      root.innerHTML = `
+        <button id="home-btn" type="button" class="mb-4 inline-flex items-center gap-1 text-sm text-emerald-700 font-semibold">
+          <span aria-hidden="true">←</span><span>Home</span>
+        </button>
+        ${renderMunicipality(m)}
+      `;
+      document.getElementById("home-btn").addEventListener("click", () => {
+        document.getElementById("zip-input").value = "";
+        showLaunch();
+      });
+      window.scrollTo({ top: 0 });
+    });
+  });
+  const browseBtn = document.getElementById("launch-browse");
+  if (browseBtn) browseBtn.addEventListener("click", openCoverageModal);
+}
+
 // ---------- controllers ----------
 
 function showResults(munis) {
@@ -361,7 +490,7 @@ function showResults(munis) {
 function handleZip(zip) {
   const root = document.getElementById("results");
   if (!zip || zip.length !== 5) {
-    root.innerHTML = "";
+    showLaunch();
     return;
   }
   const munis = lookupZip(zip, DATA);
@@ -431,7 +560,7 @@ async function init() {
     const raw = e.target.value.replace(/[^0-9]/g, "").slice(0, 5);
     if (raw !== e.target.value) e.target.value = raw;
     if (raw.length === 5) handleZip(raw);
-    else if (raw.length === 0) document.getElementById("results").innerHTML = "";
+    else if (raw.length === 0) showLaunch();
   });
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
@@ -443,6 +572,9 @@ async function init() {
       }
     }
   });
+
+  // Render the home view now that data is loaded.
+  showLaunch();
 
   document.getElementById("coverage-link").addEventListener("click", openCoverageModal);
   document.getElementById("coverage-close").addEventListener("click", closeCoverageModal);
