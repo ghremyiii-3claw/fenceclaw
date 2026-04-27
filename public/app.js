@@ -33,7 +33,13 @@ function escapeHtml(s) {
 }
 
 function typeLabel(t) {
-  return ({ city: "City", township: "Township", village: "Village" })[t] || (t || "");
+  return ({
+    city: "City",
+    township: "Township",
+    charter_township: "Charter Township",
+    general_law_township: "Township",
+    village: "Village",
+  })[t] || (t || "");
 }
 
 function isMobile() {
