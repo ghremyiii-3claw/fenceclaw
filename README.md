@@ -35,17 +35,16 @@ All data lives in [`public/municipalities.json`](public/municipalities.json):
 
 If you only have name + county and haven't done the research yet, write a minimal stub like `{ "slug": "...", "name": "...", "type": "township", "county": "...", "research_status": "stub" }`. The UI will handle it.
 
-## First-time Cloudflare Pages setup
+## Cloudflare Pages setup
 
-1. **Create the Pages project.** Cloudflare dashboard → Workers & Pages → Create → Pages → "Upload assets". Name it `fenceclaw` and upload any placeholder to bootstrap it. After GitHub Actions is wired up you never touch this flow again.
-2. **Generate an API token** with **Cloudflare Pages:Edit** permission: My Profile → API Tokens → Create Token → custom token with `Account / Cloudflare Pages / Edit`. Copy the token.
-3. **Grab your Account ID** from the right sidebar of the Cloudflare dashboard home.
-4. **Add GitHub Actions secrets** at `https://github.com/<you>/fenceclaw/settings/secrets/actions`:
-   - `CLOUDFLARE_API_TOKEN` — token from step 2
-   - `CLOUDFLARE_ACCOUNT_ID` — ID from step 3
-5. **Push to `main`.** `.github/workflows/deploy.yml` runs `wrangler pages deploy public` and publishes.
+The site auto-deploys via Cloudflare Pages' GitHub integration. Settings:
 
-Subsequent deploys are automatic on every push to `main`. You can also trigger a manual deploy from the Actions tab (the workflow has `workflow_dispatch`).
+- **Production branch:** `main`
+- **Framework preset:** None
+- **Build command:** *(empty)*
+- **Build output directory:** `public`
+
+Every push to `main` triggers a deploy.
 
 ## Disclaimer
 
