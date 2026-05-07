@@ -255,7 +255,7 @@
         "48105"
       ],
       "ordinance": {
-        "chapter": "Code of Ordinances Chapter 74 (Zoning), 74-600",
+        "chapter": "Code of Ordinances Chapter 74 (Zoning), §74-600",
         "title": "Fence Regulations",
         "url": "https://library.municode.com/mi/ann_arbor_charter_township,_(washtenaw_co.)/codes/code_of_ordinances?nodeId=COOR_CH74ZO",
         "last_verified": "2026-04-25"
@@ -263,27 +263,27 @@
       "height": {
         "front": {
           "max_ft": 4,
-          "notes": null
+          "notes": "Specific front-yard residential height not extracted from §74-600 directly. ZO §74-600 was amended by Ord 6-2024, effective July 12, 2024 — added definitions and updated location/features of fences and gates."
         },
         "side": {
           "max_ft": 6,
-          "notes": null
+          "notes": "Not extracted."
         },
         "rear": {
           "max_ft": 6,
-          "notes": null
+          "notes": "Not extracted."
         }
       },
       "opacity": {
-        "front_max_pct": 50,
-        "middle_max_pct": 100,
-        "rear_max_pct": 100,
+        "front_max_pct": null,
+        "middle_max_pct": null,
+        "rear_max_pct": null,
         "notes": "Not extracted."
       },
       "setback": {
         "required": true,
         "distance_in": null,
-        "notes": "74-595 governs setbacks on arterial roads (also amended by Ord 6-2024). 74-426 covers Requirements/Scope/Uses/Exceptions for accessory uses (also amended)."
+        "notes": "§74-595 governs setbacks on arterial roads (also amended by Ord 6-2024). §74-426 covers Requirements/Scope/Uses/Exceptions for accessory uses (also amended)."
       },
       "permit": {
         "required_always": true,
@@ -293,7 +293,7 @@
       },
       "corner_lot": {
         "has_rule": true,
-        "notes": "74-8 governs Visibility at Intersections."
+        "notes": "§74-8 governs Visibility at Intersections."
       },
       "pool_barrier": {
         "has_rule": false,
@@ -301,7 +301,7 @@
       },
       "materials": {
         "prohibited": [],
-        "notes": null
+        "notes": "Not extracted from §74-600 directly. Recent Ord 6-2024 amendment added definitions pertaining to fences."
       },
       "permit_office": {
         "name": "Ann Arbor Charter Township — Building and Zoning Department",
@@ -323,7 +323,7 @@
         "https://www.zoneomics.com/code/ann-arbor-township-MI"
       ],
       "research_notes": "CONFIRMED from primary township sources: (1) Ann Arbor Charter Township uses Code Chapter 74 (Zoning), §74-600 'Fence Regulations'; (2) Section 74-600 was amended by Ordinance 6-2024 (effective July 12, 2024) — added new definitions and updated location/features of fences and gates; (3) Township issues building permits directly (notable — different from Webster, Lodi, Saline Twps which use Washtenaw County); (4) Building Official & Zoning Administrator: Peter Pace; Building Assistants: Jae Elliott and Libby Greeley; (5) BS&A Online for inspection lookups (uid=284). NOT EXTRACTED FROM PRIMARY SOURCE: substantive heights, opacity, prohibited materials. CRITICAL DISTINCTION: Ann Arbor Charter Township (this record) and City of Ann Arbor (separate record above, UDC §5.27.5) are SEPARATE jurisdictions sharing ZIPs 48103, 48104, 48105. Township is to the north and east of the city, including Pontiac Trail and Plymouth Road corridors. Verify jurisdiction at Map Washtenaw GIS before quoting numbers. Recommend a 5-minute call to extract substantive heights from current §74-600 (post-Ord 6-2024).",
-      "research_status": "verified"
+      "research_status": "pending"
     },
     "scio-twp": {
       "slug": "scio-twp",
