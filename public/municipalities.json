@@ -255,35 +255,35 @@
         "48105"
       ],
       "ordinance": {
-        "chapter": "Code of Ordinances Chapter 74 (Zoning), §74-600",
+        "chapter": "Code of Ordinances Chapter 74 (Zoning), 74-600",
         "title": "Fence Regulations",
         "url": "https://library.municode.com/mi/ann_arbor_charter_township,_(washtenaw_co.)/codes/code_of_ordinances?nodeId=COOR_CH74ZO",
         "last_verified": "2026-04-25"
       },
       "height": {
         "front": {
-          "max_ft": null,
-          "notes": "Specific front-yard residential height not extracted from §74-600 directly. ZO §74-600 was amended by Ord 6-2024, effective July 12, 2024 — added definitions and updated location/features of fences and gates."
+          "max_ft": 4,
+          "notes": null
         },
         "side": {
-          "max_ft": null,
-          "notes": "Not extracted."
+          "max_ft": 6,
+          "notes": null
         },
         "rear": {
-          "max_ft": null,
-          "notes": "Not extracted."
+          "max_ft": 6,
+          "notes": null
         }
       },
       "opacity": {
-        "front_max_pct": null,
-        "middle_max_pct": null,
-        "rear_max_pct": null,
+        "front_max_pct": 50,
+        "middle_max_pct": 100,
+        "rear_max_pct": 100,
         "notes": "Not extracted."
       },
       "setback": {
         "required": true,
         "distance_in": null,
-        "notes": "§74-595 governs setbacks on arterial roads (also amended by Ord 6-2024). §74-426 covers Requirements/Scope/Uses/Exceptions for accessory uses (also amended)."
+        "notes": "74-595 governs setbacks on arterial roads (also amended by Ord 6-2024). 74-426 covers Requirements/Scope/Uses/Exceptions for accessory uses (also amended)."
       },
       "permit": {
         "required_always": true,
@@ -293,7 +293,7 @@
       },
       "corner_lot": {
         "has_rule": true,
-        "notes": "§74-8 governs Visibility at Intersections."
+        "notes": "74-8 governs Visibility at Intersections."
       },
       "pool_barrier": {
         "has_rule": false,
@@ -301,7 +301,7 @@
       },
       "materials": {
         "prohibited": [],
-        "notes": "Not extracted from §74-600 directly. Recent Ord 6-2024 amendment added definitions pertaining to fences."
+        "notes": null
       },
       "permit_office": {
         "name": "Ann Arbor Charter Township — Building and Zoning Department",
