@@ -195,7 +195,7 @@
       },
       "opacity": {
         "front_max_pct": 50,
-        "middle_max_pct": 80,
+        "middle_max_pct": 100,
         "rear_max_pct": 100,
         "notes": "Measured head-on, perpendicular to fence"
       },
@@ -206,9 +206,9 @@
       },
       "permit": {
         "required_always": true,
-        "required_over_ft": 0,
-        "fee_usd": 75,
-        "notes": "Fence permit ($75) required; additional building permit required over 6 ft; zoning compliance permit required in floodplains"
+        "required_over_ft": null,
+        "fee_usd": 80,
+        "notes": "Fence permit ($80) required; additional building permit required over 6 ft; zoning compliance permit required in floodplains"
       },
       "corner_lot": {
         "has_rule": true,
